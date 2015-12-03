@@ -28,3 +28,24 @@ See [License](license.md)
 
 https://github.com/Marketo/SilverStripe-ContextAwareUploadField/issues
  
+## Examples
+
+If you wish to add this to a Page object, you can put the following code into your YAML configuration.
+
+```
+ContextAwareUploadField:
+  upload_paths:
+    Page: some/location/$ClassName/$URLSegment
+```
+
+The segments in the URL directly correspond to fields in the database. The location will always be under assets.
+
+------
+
+If you wish to override all UploadField instances, you can use the following code.
+
+```
+Injector:
+  UploadField:
+    class: ContextAwareUploadField
+```
