@@ -1,0 +1,16 @@
+{
+	"name": "marketo/silverstripe-contextawareupload",
+	"description": "An upload field that makes use of configuration and keywords for determining the upload target",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "file", "upload"],
+	"license": "BSD-3-Clause",
+
+	"extra": {
+		"branch-alias": {
+			"installer-name": "contextawareupload",
+			"dev-master": "1.0.x-dev"
+		}
+	},
+
+	"minimum-stability": "dev"
+}
