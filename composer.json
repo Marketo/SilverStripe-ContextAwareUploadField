@@ -1,5 +1,5 @@
 {
-	"name": "marketo/silverstripe-contextawareupload",
+	"name": "marketo/silverstripe-contextawareuploadfield",
 	"description": "An upload field that makes use of configuration and keywords for determining the upload target",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "file", "upload"],
