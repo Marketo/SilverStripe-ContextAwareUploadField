@@ -1,4 +1,4 @@
-# Context Aware Upload Field
+# SilverStripe Context Aware Upload Field
 
 ## Requirements
  * SilverStripe ^3.1
