@@ -4,13 +4,20 @@
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "file", "upload"],
 	"license": "BSD-3-Clause",
-
-	"extra": {
-		"installer-name": "addressable",
-		"branch-alias": {
-			"dev-master": "1.0.x-dev"
+	"authors": [
+		{
+			"name": "Tom Brewer-Vinga",
+			"email": "tom@silverstripe.com.au"
 		}
+	],
+	"support": {
+		"issues": "https://github.com/Marketo/SilverStripe-ContextAwareUploadField/issues"
 	},
-
+	"license" : "BSD-3-Clause",
+	"require":
+	{
+		"silverstripe/cms": "3.*",
+		"composer/installers": "*"
+	},
 	"minimum-stability": "dev"
 }
