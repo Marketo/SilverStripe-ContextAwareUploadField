@@ -56,7 +56,8 @@ class ContextAwareUploadField extends UploadField
 		// Replace with field values
 		foreach($matches[0] as $match) {
 			$field = str_replace("$", "", $match);
-			$path = str_replace($match, $this->record->getField($field), $path);
+			$value = FileNameFilter::create()->filter($this->record->getField($field));
+			$path = str_replace($match, $value, $path);
 		}
 
 		$this->folderName = $path;
