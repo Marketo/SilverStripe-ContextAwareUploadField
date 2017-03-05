@@ -22,21 +22,23 @@ class ContextAwareUploadField extends UploadField
             return Config::inst()->get('Upload', 'uploads_folder');
         }
 
-        $path = $this->determineFolderName();
-        return $path;
+        $this->folderName = static::determine_folder_path($this->record);
+        return $this->folderName;
     }
 
     /**
-     * Description
+     * Returns the parsed upload_paths for $record's uploads
+     * @param \DataObject $record
+     *
      * @return string
      */
-    protected function determineFolderName()
+    public static function determine_folder_path(\DataObject $record)
     {
         // Grab paths
         $paths = Config::inst()->get(__CLASS__, 'upload_paths');
 
         // Grab ancestry from top-down
-        $className = get_class($this->record);
+        $className = get_class($record);
         $classes = array_reverse(ClassInfo::ancestry($className));
 
         $path = $className;
@@ -56,11 +58,10 @@ class ContextAwareUploadField extends UploadField
         // Replace with field values
         foreach($matches[0] as $match) {
             $field = str_replace("$", "", $match);
-            $value = FileNameFilter::create()->filter($this->record->relField($field));
+            $value = FileNameFilter::create()->filter($record->relField($field));
             $path = str_replace($match, $value, $path);
         }
 
-        $this->folderName = $path;
         return $path;
     }
 }
