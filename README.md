@@ -17,7 +17,7 @@ If you aren't using composer, pull down the code into its own directory.
 
 To add this to a Page object, you can put the following code into your YAML configuration.
 
-```
+```yaml
 ContextAwareUploadField:
   upload_paths:
     Page: some/location/$ClassName/$URLSegment
@@ -27,9 +27,21 @@ The segments in the URL directly correspond to fields in the database. The locat
 
 ------
 
+`upload_paths` also accepts SilverStripe dot notation. For example:
+
+```yaml
+ContextAwareUploadField:
+  upload_paths:
+    Teacher: teachers/$Name
+    Course: teachers/$Teacher.Name/$Name
+    Student: students/$GraduatingClass.Year/$Name
+```
+
+------
+
 If you wish to override all UploadField instances, you can use the following code.
 
-```
+```yaml
 Injector:
   UploadField:
     class: ContextAwareUploadField
